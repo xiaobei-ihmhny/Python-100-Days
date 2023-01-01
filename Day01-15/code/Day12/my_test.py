@@ -81,8 +81,28 @@ def re4():
     print(sentence_list)
 
 
+# 替换字符串中的不良内容
+def re5():
+    sentence = '我:是*<>小贝'
+    purified = re.sub(r'[?\/:*"<>|]', '_', sentence, flags=re.IGNORECASE)
+    print(purified)  #
+
+
+def re6():
+    sentence = 'https://pics7.baidu.com/feed/b3fb43166d224f4a44a9c3cad0cfe7559922d1f3.jpeg'
+    index1 = sentence.rfind('/')
+    index2 = sentence.rfind('?')
+    if index2 == -1:
+        sentence = sentence[index1+1:]
+    else:
+        sentence = sentence[index1+1:index2]
+    print(sentence)
+
+
 if __name__ == '__main__':
     # re1()
     # re2()
     # re3()
-    re4()
+    # re4()
+    # re5()
+    re6()
